@@ -1,6 +1,6 @@
-# Uplift Modeling — Marketing Campaign Optimization
+# Uplift Modeling Marketing Campaign Optimization
 
-An advanced causal machine learning project to identify which customers should receive a marketing intervention — and which should not — using uplift modeling on a randomized controlled trial dataset.
+An advanced causal machine learning project to identify which customers should receive a marketing intervention and which should not using uplift modeling on a randomized controlled trial dataset.
 
 [![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)](https://www.python.org/)
 [![Scikit-learn](https://img.shields.io/badge/Scikit--learn-1.3-orange)](https://scikit-learn.org/)
@@ -13,7 +13,7 @@ An advanced causal machine learning project to identify which customers should r
 
 Most machine learning projects answer: *"Who will convert?"*
 
-This project answers a fundamentally harder question: *"Who will convert **because** of our intervention — and who would have converted anyway?"*
+This project answers a fundamentally harder question: *"Who will convert **because** of our intervention and who would have converted anyway?"*
 
 This distinction is the difference between predictive modeling and causal reasoning. A standard classification model cannot identify customers who are harmed by an intervention (Sleeping Dogs), cannot distinguish sure-thing converters from persuadable ones, and therefore cannot optimize campaign ROI. Uplift modeling solves all three problems.
 
@@ -34,10 +34,10 @@ The goal is to identify the Persuadables — the narrow segment of customers who
 
 | Type | Behavior | Action |
 |---|---|---|
-| Persuadables | Convert only if contacted | Target — high ROI |
-| Sure Things | Convert regardless | Skip — wasted spend |
-| Lost Causes | Don't convert regardless | Skip — no value |
-| Sleeping Dogs | Less likely to convert if contacted | Avoid — active harm |
+| Persuadables | Convert only if contacted | Target - high ROI |
+| Sure Things | Convert regardless | Skip - wasted spend |
+| Lost Causes | Don't convert regardless | Skip - no value |
+| Sleeping Dogs | Less likely to convert if contacted | Avoid - active harm |
 
 A standard churn or conversion model cannot distinguish between these four groups.
 
@@ -74,7 +74,7 @@ uplift-modeling-marketing-campaign/
 ### 1. Experiment Design & EDA
 
 - Confirmed randomized treatment/control split with balanced group sizes (21,387 treatment vs 21,306 control)
-- Calculated Average Treatment Effect (ATE) — email caused measurable conversion lift on average
+- Calculated Average Treatment Effect (ATE) email caused measurable conversion lift on average
 - Discovered treatment effect is highly heterogeneous across segments:
   - Recency segment 3 showed -18.5% uplift (Sleeping Dogs)
   - History segment $500+ showed +100% uplift (strong Persuadables)
@@ -85,10 +85,10 @@ uplift-modeling-marketing-campaign/
 
 | Feature | Logic |
 |---|---|
-| `RecencyScore` | 1 / (recency + 1) — recent customers more responsive |
-| `IsHighValue` | history > 500 — segment with strongest positive uplift |
-| `IsMidValue` | history $200–500 — segment with negative uplift |
-| `EngagementScore` | history / (recency + 1) — combined engagement signal |
+| `RecencyScore` | 1 / (recency + 1) - recent customers more responsive |
+| `IsHighValue` | history > 500 - segment with strongest positive uplift |
+| `IsMidValue` | history $200–500 - segment with negative uplift |
+| `EngagementScore` | history / (recency + 1) - combined engagement signal |
 
 ### 3. Uplift Models
 
@@ -112,7 +112,7 @@ Two meta-learner approaches were implemented and compared:
 | S-Learner | 130.17 |
 | Random Baseline | 0.00 |
 
-The Qini curve measures cumulative incremental conversions as customers are contacted in descending order of uplift score. The Qini coefficient is the area between the model curve and random targeting baseline — higher is better.
+The Qini curve measures cumulative incremental conversions as customers are contacted in descending order of uplift score. The Qini coefficient is the area between the model curve and random targeting baseline higher is better.
 
 T-Learner outperformed S-Learner by 24.5% on Qini coefficient, confirming that separate treatment/control modeling captures causal heterogeneity more effectively.
 
@@ -191,7 +191,7 @@ This targeting strategy reduces campaign spend by 92.8% while preserving increme
 ## Author
 
 **Om Kiran Kadam**
-B.Tech — Artificial Intelligence & Data Science, Sanjivani University
+B.Tech - Artificial Intelligence & Data Science, Sanjivani University
 
 [LinkedIn](https://linkedin.com/in/omkadam05) · [GitHub](https://github.com/Omkadam01) · [Kaggle](https://www.kaggle.com/omkadam05)
 
